@@ -6,9 +6,24 @@ stock =[
 		{"name":"Muwogo","price":"20000"},
 		{"name":"rice","price":"300000"}
 	]
+
 choice=""
 item_name=""
 item_price=""
+
+def sell_item():
+	stock_table()
+	num = int(input	(">>:"))
+	
+	if num >0 and num<=len(stock)  :
+		stock.pop(num-1)
+		print("Item sold")
+		menu()
+	else:
+		print("Input value not found")
+		menu()
+
+
 
 def add_item():
 	item={"name":"","price":""}
@@ -24,16 +39,22 @@ def add_item():
 	item["price"]=item_price
 	stock.append(item)
 	print("1. Enter Another")
-	print("2. Main Menu")
+	print("2. View Stock Items")
+	print("3. Main Menu")
 	choice=""
 	choice=input(">>:")
 	if choice=="1":
 		add_item() 
 	elif choice == "2":	
+		view_stock_list()
+	elif choice == "3":	
 		menu()
+	else:
+		print("Invalid Entry")
+		choice=input(">>:")
 
 ##THE IDEA IS TO CREATE A TABLE LIKE VIEW
-def  view_stock_list():
+def  stock_table():
 	GAP=2
 	headers=["No","Name","Price"]
 	max_len_no=len(headers[0])
@@ -67,6 +88,21 @@ def  view_stock_list():
 		j+=1
 
 
+def view_stock_list():
+	stock_table()
+	print("1. Sell Item")
+	print("2. Main Menu")
+	choice=""
+	choice=input(">>:")
+	if choice=="1":
+		sell_item()
+	elif choice == "2":	
+		menu()
+	else:
+		print("Invalid Entry")
+		choice=input(">>:")
+
+
 def menu():
 	print("==========WELCOME TO HAJ WAHAB TRADERS =======")
 	print("Choose Action to perform")
@@ -74,6 +110,7 @@ def menu():
 	print("2. View Stock List")
 	print("3. Sell Item")
 	print("h. Help")
+	print("q. Quit")
 
 	while True:
 		choice=input(">>")    
