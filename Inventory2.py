@@ -94,7 +94,6 @@ def  table_view(headers,item_list):
 		str(j).ljust(max_len_no) + "|" +
 		i["name"].ljust(max_len_name) + "|" +
 		i["price"].rjust(max_len_price) + "|"
-		i.index(value)
 		)
 		j+=1
 	print("".ljust(max_len_no+max_len_name+max_len_price+GAP*3-2,"-"))
