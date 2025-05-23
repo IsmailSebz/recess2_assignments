@@ -1,5 +1,2 @@
-stock =[
-		{"name":"Muwogo","price":"20000"},
-		{"name":"rice","price":"300000"}
-	]
-print(len(stock))
+headers=["No","Name","Sold At","Qty"]
+print(len(headers))
